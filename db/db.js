@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const mongoUrl = 'mongodb://localhost:27017/Found_Lost';
+// const mongoUrl = 'mongodb://localhost:27017/Found_Lost';
+// const mongoURL = 'mongodb+srv://pk2693:qIuv12DDiSi2ubyV@found-lost.tgba9.mongodb.net/'
 
-// Set up MongoDB connection
-mongoose.connect(mongoUrl);
+
+const mongoURL = process.env.MONGODB_URL;
+// const mongoUrl = process.env.MONOGODB_URL_LOCAL;
+
+mongoose.connect(mongoURL);
 
 const db = mongoose.connection;
 
