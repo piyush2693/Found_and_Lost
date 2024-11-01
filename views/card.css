@@ -1,0 +1,81 @@
+/* Container for the lost-item card */
+.card.lost-item {
+    width: 100%;                     /* Full width within parent */
+    max-width: 250px;                /* Fixed max width for the card */
+    padding: 15px;                   /* Inner spacing */
+    border-radius: 10px;             /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #fefefe;       /* Light background */
+    border: 1px solid #ddd;          /* Soft border for definition */
+    transition: transform 0.3s;      /* Smooth hover effect */
+    overflow: hidden;                /* Prevents content overflow */
+}
+
+/* Hover effect for the card */
+.card.lost-item:hover {
+    transform: scale(1.025);         /* Slight scale up on hover */
+}
+
+/* Date text styling */
+.card.lost-item p:first-of-type {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+/* Item image styling */
+.card.lost-item .item-image {
+    width: 100%;                     /* Full width within container */
+    max-height: 150px;               /* Fixed max height */
+    object-fit: cover;               /* Keep image aspect ratio */
+    border-radius: 8px;              /* Rounded corners for the image */
+    margin: 5px 0;                   /* Spacing around the image */
+}
+
+/* Heading for the item type */
+.card.lost-item h3 {
+    color: #333;
+    font-size: 1.8em;
+    font-weight: 900;
+    margin: 3px 0;
+    text-align: center;
+}
+
+/* Style for all other paragraphs */
+.card.lost-item p {
+    color: #555;
+    font-size: 1em;
+    margin: 5px 0;
+    line-height: 1.4;
+    max-height: 100px;               
+    overflow: hidden;                
+    /* text-overflow: ellipsis;          */
+}
+.card.lost-item .desc{
+    overflow:auto;
+}
+
+/* Bold text styling */
+.card.lost-item p strong {
+    color: #222;
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+    .card.lost-item {
+        max-width: 80%;              /* Reduce width on smaller screens */
+    }
+}
+
+/* Smaller text and spacing on very small screens */
+@media (max-width: 480px) {
+    .card.lost-item {
+        padding: 15px;
+    }
+    .card.lost-item h3 {
+        font-size: 1.2em;
+    }
+    .card.lost-item p {
+        font-size: 0.9em;
+    }
+}

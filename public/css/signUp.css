@@ -1,0 +1,117 @@
+/* General reset for padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for form */
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 330px;
+    padding: 13px 15px;
+    text-align: center;
+}
+
+/* Header styling */
+header h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    
+}
+
+/* Form input fields */
+form label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styling for buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #6e8efb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #576cd6;
+    transform: scale(1.05);
+}
+
+/* Responsive footer */
+footer p {
+    font-size: 14px;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+
+.password-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 30px; /* Adjust for icon */
+}
+
+.password-container i {
+    position: absolute;
+    right: 13px;
+    top: 40%;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found Item Form</title>
+    <link rel="stylesheet" href="/css/found.css">
+</head>
+<body>
+
+<h2>Report Found Item</h2>
+<form method="post" action="/user/found/upload" enctype="multipart/form-data">
+
+    <label for="imageUpload">Upload images:</label>
+    <input type="file" id="imageUpload" name="images" accept="image/*" multiple required>
+
+    <label for="title">Item Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="desc">Description:</label>
+    <textarea id="desc" name="desc" rows="4"></textarea>
+
+    <label for="foundBy">Founder's Name:</label>
+    <input type="text" id="foundBy" name="foundBy" required>
+
+    <label for="foundDate">Date Found:</label>
+    <input type="date" id="foundDate" name="foundDate" required>
+
+    <label for="location">Location Found:</label>
+    <input type="text" id="location" name="foundLocation" required>
+
+    <label for="phone">Founder's Phone:</label>
+    <input type="text" id="phone" name="founderPhone" required>
+
+    <label for="roll_no">Founder's Roll Number:</label>
+    <input type="text" id="roll_no" name="founderRoll_no">
+
+    <button type="submit">Submit Found Item</button>
+</form>
+
+</body>
+</html>

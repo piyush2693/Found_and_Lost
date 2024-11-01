@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Item Form</title>
+    <link rel="stylesheet" href="/css/lost.css">
+</head>
+<body>
+
+<h2>Report Lost Item</h2>
+<form method="post" action="/user/lost/upload" enctype="multipart/form-data">
+
+    <label for="imageUpload">Upload images:</label>
+    <input type="file" id="imageUpload" name="images" accept="image/*" multiple required>
+
+    <label for="title">Item Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="desc">Description:</label>
+    <textarea id="desc" name="desc" rows="4" required></textarea>
+
+    <label for="lostDate">Date Found:</label>
+    <input type="date" id="lostDate" name="lostDate" required>
+
+    <label for="location">Location lost:</label>
+    <input type="text" id="location" name="lostLocation" required>
+
+    <label for="owner">Owner's Name:</label>
+    <input type="text" id="owner" name="owner" required>
+
+    <label for="phone">Owner's Phone:</label>
+    <input type="text" id="phone" name="ownerPhone" required>
+
+    <label for="roll_no">Owner's Roll Number:</label>
+    <input type="text" id="roll_no" name="ownerRoll_no" required>
+
+    <button type="submit">Submit Lost Item</button>
+</form>
+
+
+</body>
+</html>

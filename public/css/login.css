@@ -1,0 +1,93 @@
+/* General reset for padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    background: linear-gradient(135deg, #3a6073, #3aaf9f, #d6f8f3); /* Dark teal to soft mint green to pale aqua */
+
+
+
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Container for form */
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 330px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header styling */
+header h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+/* Form input fields */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+/* Styling for buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #ff6f4c;
+    transform: scale(1.05);
+}
+
+
+
+    .password-container {
+        position: relative;
+        margin-bottom: 15px;
+    }
+    
+    .password-container input {
+        width: 100%;
+        padding-right: 30px; /* Adjust for icon */
+    }
+
+    .password-container i {
+        position: absolute;
+        right: 15px;
+        top: 38%;
+        transform: translateY(-50%);
+    }

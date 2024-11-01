@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Found&Lost</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <a href="/user/home">
+                    <img src="http://res.cloudinary.com/web-backend/image/upload/v1730370354/ln6rddjcgykic5tubqwf.png" alt="logo-image">Found & Lost
+                </a>
+            </div>
+            <div class="buttons">
+                <form method="get" action="/user/found">
+                    <button class="found">Found</button>
+                </form>
+                <form method="get" action="/user/lost">
+                    <button class="lost">Lost</button>
+                </form>
+            </div>
+            <form class="filter-form" id="filter-form" method="GET" action="/user/filterItems">
+                <label for="dateFilter">Filter by date:</label>
+                <select id="dateFilter" name="dateFilter" onchange="document.getElementById('filter-form').submit()">
+                    <option value="">Select...</option>
+                    <option value="today">Today</option>
+                    <option value="yesterday">Yesterday</option>
+                    <option value="lastWeek">Last Week</option>
+                </select>
+            </form>
+            <ul class="nav-links">
+                <li><a href="/user/home">Home</a></li>
+                <li><a href="/user/foundList">Found Items</a></li>
+                <li><a href="/user/lostList">Lost Items</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="content">
+        <% foundList.forEach(foundItem => { %>
+            <div class="card found-item">
+                <% const dateOnly = foundItem.createdAt.toLocaleDateString("en-US", {year: "numeric",month: "2-digit",day: "2-digit",}); %>
+                <h3>Found Item</h3>
+                <div class="img-box">
+                    <img src="<%= foundItem.images[0] %>" alt="Found Item Image" class="item-image">
+                </div>
+                
+                <p><strong>Item Name:</strong> <%= foundItem.title %></p>
+                <p><strong>Description:</strong> <%= foundItem.desc %></p>
+                <p><strong>Found By:</strong> <%= foundItem.foundBy %></p>
+                <p><strong>Found Date:</strong> <%= foundItem.foundDate %></p>
+                <p><strong>Found Location:</strong> <%= foundItem.foundLocation %></p>
+                <p><strong>Founder Phone:</strong> <%= foundItem.founderPhone %></p>
+                <p><strong>Founder Roll No:</strong> <%= foundItem.founderRoll_no %></p>
+                <p class="upload-date"><strong><%= dateOnly %></strong></p>
+            </div>
+        <% }); %>
+        
+        <% lostList.forEach(lostItem => { %>
+            <div class="card lost-item">
+                <% const dateOnly = lostItem.createdAt.toLocaleDateString("en-US", {year: "numeric",month: "2-digit",day: "2-digit",}); %>
+                <h3>Lost Item</h3>
+                <div class="img-box">
+                    <img src="<%= lostItem.images[0] %>" alt="Found Item Image" class="item-image">
+                </div>
+                <p><strong>Item Name:</strong> <%= lostItem.title %></p>
+                <p class="desc"><strong>Description:</strong> <%= lostItem.desc %></p>
+                <p><strong>Lost Location:</strong> <%= lostItem.lostLocation %></p>
+                <p><strong>Lost Date:</strong> <%= lostItem.lostDate %></p>
+                <p><strong>Owner Phone:</strong> <%= lostItem.ownerPhone %></p>
+                <p><strong>Owner Roll No:</strong> <%= lostItem.ownerRoll_no %></p>
+                <p class="upload-date"><strong><%= dateOnly %></strong></p>
+            </div>
+        <% }); %>
+    </section>
+    
+    <!-- JavaScript to handle card click and display -->
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent triggering click on parent elements
+                const overlay = document.createElement('div');
+                overlay.classList.add('overlay', 'active');
+                
+                // Clone the clicked card content
+                const clonedCard = card.cloneNode(true);
+                overlay.appendChild(clonedCard);
+    
+                // Add a close button
+                const closeButton = document.createElement('span');
+                closeButton.classList.add('close-btn');
+                closeButton.innerHTML = '&times;';
+                closeButton.addEventListener('click', () => {
+                    overlay.classList.remove('active');
+                    overlay.remove();
+                });
+                clonedCard.appendChild(closeButton);
+    
+                // Close overlay on clicking outside of the card
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        overlay.classList.remove('active');
+                        overlay.remove();
+                    }
+                });
+    
+                document.body.appendChild(overlay);
+            });
+        });
+    </script>
+    
+</body>
+</html>
